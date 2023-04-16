@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON MetaField Maker (Beta)</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+	<script src="script/script.js"></script>
+</head>
+<body>
+	
+<form>  
+<nav>
+	<div>
+	<h1>JSON MetaField Maker (Beta)</h1>
+	</div>
+	<div class="btnForm">
+		<button id="add_form_button" class="btnFormStyle btn1">Add More Form</button>
+		<input type="submit" value="Generate JSON" class="btnFormStyle btn2">
+		<button id="validate-btn" class="btnFormStyle btn3">Validate JSON</button>
+	</div>
+		<div id="validation-result" class="validation-result"></div>		
+</nav>
+
+
+<div class="wrapper">
+	
+	<div id="form_container">
+		
+		<div class="input_wrapper" >
+        
+        
+		
+			<input type="text" name="title[]" id="title[]" class="title" placeholder="Title" required>
+			
+			<input type="text" name="note[]" id="note[]" class="note" placeholder="Note">
+			
+			<select name="type[]" class="type" id="type[]" required>
+			<option value="" disabled selected hidden>-Select Type-</option>
+            <option value="dropdown">Dropdown</option>
+            <option value="checkboxes">Checkboxes</option>
+        </select>
+      
+			
+		<div class="addons_container">
+        <h2>Addons</h2>
+				<div class="addons_data">
+					
+					<input type="text" name="product_id[]" id="product_id[]"class="product_id" placeholder="Product ID" required>
+					
+					<input type="text" name="variant[]" class="variant" placeholder="Variant" >
+				
+					<input type="text" name="name[]" class="name" placeholder="Name">
+					<a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a>
+				</div>
+			</div>
+			
+			<button class="add_addon_button">Add More Addons</button>
+			<a href="#" class="delete_form">Remove All Fields</a>
+        <hr>
+			
+		</div>
+		
+	</div>
+	
+	<div class="output">
+	<textarea id="output-json" placeholder="Output here........"></textarea>
+	</div>
+</div>
+</body>
+
+	<br><br>
+</form>
+
+</html>
+<script>
+	
+	// Get the elements
+    const jsonInput = document.getElementById('output-json');
+    const validateBtn = document.getElementById('validate-btn');
+    const validationResult = document.getElementById('validation-result');
+    
+    // Add an event listener to the auto-format button
+   validateBtn.addEventListener('click', () => {
+        try {
+            const json = JSON.parse(jsonInput.value);
+            jsonInput.value = JSON.stringify(json, null, 2);
+            validationResult.innerHTML = '<div class="valid-result">JSON is valid.</div>';
+        } catch (error) {
+            validationResult.innerHTML = `<div class="invalid-result">JSON is not valid.</div>`;
+        }
+    });
+</script>
