@@ -115,7 +115,8 @@ margin-top: 0.5rem;
 .input_wrapper {
     display: grid;
     justify-content:center;
-   
+    padding-bottom: 1rem;
+    border-bottom:1px solid #000000;
 }
 nav {
     display: inline-flex;
@@ -126,14 +127,18 @@ nav {
     border-bottom: 3px solid black;
 }
 .btnForm{
-    display: inline-flex; 
+    display: inline-flex;
     justify-content: center;
-    width: 60%;
+    width: 100%;
+    height: 2.4rem;
 }
 h1 {
     color: #fff;
 }
-
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 nav h1{
     float: left;
     margin-left: 1rem;
@@ -146,6 +151,7 @@ nav h1{
     font-weight: bold;
     margin-right: 1rem;
     border: 1px solid rgb(214, 214, 214);
+  
 }
 .btn2{
     background-color:#207020 ;
@@ -170,8 +176,39 @@ nav h1{
     
 }
 
-.validation-result {
+.valid-result {
     background-color: #207020;
     color: #fff;
-   
+   width: 100%;
+   height: 2.4rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    font-weight: bold;
+}
+
+.invalid-result {
+    background-color: #b33d3d;
+    color: #fff;
+    width: 100%;
+    height: 2.4rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    font-weight: bold;
+}
+
+.delete_form {
+    margin-top: 0.4rem;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    background-color: #5a4949;
+    color: #fff;
+    font-weight: bold;
+}
+
+.delete_form:hover{
+    background-color: #706e6e;
 }

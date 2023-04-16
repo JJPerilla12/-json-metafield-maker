@@ -24,7 +24,7 @@ $(document).ready(function() {
     $("#add_form_button").click(function(e) {
         e.preventDefault();
 
-        $("#form_container").append('<div class="input_wrapper"><input type="text" name="title[]" id="title[]" placeholder="Title" class="title" required> <input type="text" name="note[]" id="note[]" class="note" placeholder="Note"> <select name="type[]" class="type" required><option value="" disabled selected hidden>-Select Type-</option><option value="dropdown">Dropdown</option><option value="checkboxes">Checkboxes</option></select><h2>Addons</h2><div class="addons_container"><div class="addons_data"><input type="text" name="product_id[]" class="product_id" placeholder="Product ID" required><input type="text" name="variant[]" class="variant" placeholder="Variant"><input type="text" placeholder="Name" name="name[]" class="name"><a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div></div><button class="add_addon_button">Add More Addons</button><br><br></div>');
+        $("#form_container").append('<div class="input_wrapper"><input type="text" name="title[]" id="title[]" placeholder="Title" class="title" required> <input type="text" name="note[]" id="note[]" class="note" placeholder="Note"> <select name="type[]" class="type" required><option value="" disabled selected hidden>-Select Type-</option><option value="dropdown">Dropdown</option><option value="checkboxes">Checkboxes</option></select><h2>Addons</h2><div class="addons_container"><div class="addons_data"><input type="text" name="product_id[]" class="product_id" placeholder="Product ID" required><input type="text" name="variant[]" class="variant" placeholder="Variant"><input type="text" placeholder="Name" name="name[]" class="name"><a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div></div><button class="add_addon_button">Add More Addons</button><a href="#" class="delete_form">Remove All Fields</a></div>');
     });
 
     $("#form_container").on("click", ".add_addon_button", function(e) {
@@ -39,10 +39,17 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on("click", ".remove_addon_button", function(e) {
+    
+
+    $(document).on("click", ".delete_form", function(e) {
 e.preventDefault();
 $(this).parent('div').remove();
 });
+$(document).on("click", ".remove_addon_button", function(e) {
+    e.preventDefault();
+    $(this).parent('div').remove();
+    });
+
 $("form").submit(function(e) {
     e.preventDefault();
 

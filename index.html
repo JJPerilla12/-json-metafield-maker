@@ -10,13 +10,15 @@
 <body>
 	
 <form>  
-<nav><h1>FSRB JSON MetaField Maker (Beta)</h1>
-	
+<nav>
+	<div>
+	<h1>FSRB JSON MetaField Maker (Beta)</h1>
+	</div>
 	<div class="btnForm">
 		<button id="add_form_button" class="btnFormStyle btn1">Add More Form</button>
-		<input type="submit" value="Submit" class="btnFormStyle btn2">
+		<input type="submit" value="Generate JSON" class="btnFormStyle btn2">
 		<button id="validate-btn" class="btnFormStyle btn3">Validate JSON</button>
-		</div>
+	</div>
 		<div id="validation-result" class="validation-result"></div>		
 </nav>
 
@@ -52,11 +54,13 @@
 					<a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a>
 				</div>
 			</div>
-    
+			
 			<button class="add_addon_button">Add More Addons</button>
+			<a href="#" class="delete_form">Remove All Fields</a>
         <hr>
 			
 		</div>
+		
 	</div>
 	
 	<div class="output">
@@ -81,9 +85,9 @@
         try {
             const json = JSON.parse(jsonInput.value);
             jsonInput.value = JSON.stringify(json, null, 2);
-            validationResult.innerHTML = 'JSON is valid.';
+            validationResult.innerHTML = '<div class="valid-result">JSON is valid.</div>';
         } catch (error) {
-            validationResult.innerHTML = `JSON is not valid.`;
+            validationResult.innerHTML = `<div class="invalid-result">JSON is not valid.</div>`;
         }
     });
 </script>
