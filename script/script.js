@@ -11,7 +11,7 @@ $(document).ready(function() {
 
         if (x < max_fields) {
             x++;
-            $(wrapper).append('<div><label for="product_id_' + x + '">Product ID:</label><input type="text" name="product_id_' + x + '" id="product_id_' + x + '"><label for="variant_' + x + '">Variant:</label><input type="text" name="variant_' + x + '" id="variant_' + x + '"><label for="name_' + x + '">Name:</label><input type="text" name="name_' + x + '" id="name_' + x + '"><a href="#" class="remove_addon_button">Remove</a></div>');
+            $(wrapper).append('<div><label for="product_id_' + x + '">Product ID:</label><input type="text" name="product_id_' + x + '" id="product_id_' + x + '"><label for="variant_' + x + '">Variant:</label><input type="text" name="variant_' + x + '" id="variant_' + x + '"><label for="name_' + x + '">Name:</label><input type="text" name="name_' + x + '" id="name_' + x + '"><input type="text" name="qty_'+ x +'" id="qty_'+ x +'"><a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div>');
         }
     });
 
@@ -24,7 +24,7 @@ $(document).ready(function() {
     $("#add_form_button").click(function(e) {
         e.preventDefault();
 
-        $("#form_container").append('<div class="input_wrapper"><input type="text" name="title[]" id="title[]" placeholder="Title" class="title" required> <input type="text" name="note[]" id="note[]" class="note" placeholder="Note"> <select name="type[]" class="type" required><option value="" disabled selected hidden>-Select Type-</option><option value="dropdown">Dropdown</option><option value="checkboxes">Checkboxes</option></select><h2>Addons</h2><div class="addons_container"><div class="addons_data"><input type="text" name="product_id[]" class="product_id" placeholder="Product ID" required><input type="text" name="variant[]" class="variant" placeholder="Variant"><input type="text" placeholder="Name" name="name[]" class="name"><a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div></div><button class="add_addon_button">Add More Addons</button><a href="#" class="delete_form">Remove All Fields</a></div>');
+        $("#form_container").append('<div class="input_wrapper"><input type="text" name="title[]" id="title[]" placeholder="Title" class="title" required> <input type="text" name="note[]" id="note[]" class="note" placeholder="Note"> <select name="type[]" class="type" required><option value="" disabled selected hidden>-Select Type-</option><option value="dropdown">Dropdown</option><option value="checkboxes">Checkboxes</option></select><h2>Addons</h2><div class="addons_container"><div class="addons_data"><input type="text" name="product_id[]" class="product_id" placeholder="Product ID" required><input type="text" name="variant[]" class="variant" placeholder="Variant"><input type="text" placeholder="Name" name="name[]" class="name"><input type="text" name="qty[]" class="qty" placeholder="Qty"><a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div></div><button class="add_addon_button">Add More Addons</button><a href="#" class="delete_form">Remove All Fields</a></div>');
     });
 
     $("#form_container").on("click", ".add_addon_button", function(e) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
         var new_addon_count = addon_count + 1;
 
         if (new_addon_count <= max_fields) {
-            $(addons_container).append('<div class="addons_data"><input type="text" id="product_id[]" name="product_id[]" class="product_id" placeholder="Product ID" required> <input type="text" name="variant[]" class="variant" placeholder="Variant"> <input type="text" name="name[]" class="name" placeholder="Name"> <a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div>');
+            $(addons_container).append('<div class="addons_data"><input type="text" id="product_id[]" name="product_id[]" class="product_id" placeholder="Product ID" required> <input type="text" name="variant[]" class="variant" placeholder="Variant"> <input type="text" name="name[]" class="name" placeholder="Name"><input type="text" name="qty[]" class="qty" placeholder="Qty"> <a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a></div>');
         }
     });
 
@@ -92,14 +92,15 @@ $("form").submit(function(e) {
             var name = $(this).find(".name").val();
             if (name) {
                 addons += ',\n\"name\":\"'  + name + '\"';
-            }else{
-                
             }
            
-            
+            var qty = $(this).find(".qty").val();
+            if (qty) {
+                addons += ',\n\"qty\":'  + qty + '';
+            }
 
-            if (product_id || variant || name) {
-                addons += '\n}\n';
+            if (product_id || variant || name || qty) {
+                addons += '\n}';
                 
                
             }else{
@@ -108,7 +109,7 @@ $("form").submit(function(e) {
             
                 if (inputCount > 1  ){
               
-               addons +=',';
+               addons +=',\n';
            }
           
            
@@ -122,18 +123,18 @@ $("form").submit(function(e) {
          //   input_data = input_data.slice(0, -1);
             
         //}
-        if (input_data.endsWith(",")) {
-                  input_data = input_data.slice(0, -1);
+        if (input_data.endsWith(",\n")) {
+                  input_data = input_data.slice(0, -2);
                 }
-        input_data += ']\n}\n,';
+        input_data += '\n]\n},\n';
 
         
         }
     });
     
-    if (input_data.charAt(input_data.length - 1) === ",") {
-          input_data = input_data.slice(0, -1);
-            
+    if (input_data.charAt(input_data.length - 2) === ",") {
+          input_data = input_data.slice(0, -2);
+            input_data +='\n';
         }
 
 input_data += ']\n';

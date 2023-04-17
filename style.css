@@ -52,8 +52,9 @@ textarea {
     border: 2px solid rgb(80, 76, 76);
     margin-top: 0.5rem;
 }
-.addons_container .name {
+.addons_container .qty {
     border-radius: 0.2rem 0 0 0.2rem;
+    width:4rem;
 }
 
 .addons_container input {
@@ -91,7 +92,7 @@ margin-top: 0.5rem;
     display: flex;
 }
 
-.addons_data input:nth-child(-n + 2){
+.addons_data input:nth-child(-n + 3){
    margin-right: 1rem;
 }
 
