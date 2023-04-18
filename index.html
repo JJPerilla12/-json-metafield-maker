@@ -17,7 +17,7 @@
 	<div class="btnForm">
 		<button id="add_form_button" class="btnFormStyle btn1">Add More Form</button>
 		<input type="submit" value="Generate JSON" class="btnFormStyle btn2">
-		<button id="validate-btn" class="btnFormStyle btn3">Validate JSON</button>
+		<a href="#" id="validate-btn" class="btnFormStyle btn3">Validate JSON</a >
 	</div>
 		<div id="validation-result" class="validation-result"></div>		
 </nav>
@@ -55,7 +55,12 @@
 					<a href="#" class="remove_addon_button"><img src="img/remove-ico.png" alt="" class="remove-img"></a>
 				</div>
 			</div>
+			<div class="conditional-wrapper">
 			
+			</div>
+
+
+			<button class="add-conditional-logic">Add Conditional Logic</button>
 			<button class="add_addon_button">Add More Addons</button>
 			<a href="#" class="delete_form">Remove All Fields</a>
         <hr>
@@ -77,15 +82,15 @@
 <script>
 	
 	// Get the elements
-    const jsonInput = document.getElementById('output-json');
+    const jsonOutput = document.getElementById('output-json');
     const validateBtn = document.getElementById('validate-btn');
     const validationResult = document.getElementById('validation-result');
     
     // Add an event listener to the auto-format button
    validateBtn.addEventListener('click', () => {
         try {
-            const json = JSON.parse(jsonInput.value);
-            jsonInput.value = JSON.stringify(json, null, 2);
+            const json = JSON.parse(jsonOutput.value);
+            jsonOutput.value = JSON.stringify(json, null, 2);
             validationResult.innerHTML = '<div class="valid-result">JSON is valid.</div>';
         } catch (error) {
             validationResult.innerHTML = `<div class="invalid-result">JSON is not valid.</div>`;

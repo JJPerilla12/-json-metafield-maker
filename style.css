@@ -30,7 +30,9 @@ textarea {
     padding: 1rem;
     font-size: 1rem;
     margin-top: 2.5rem;
+
 }
+
 .title, .note, .type {
     display: inline-flex;
     font-size: 1.2rem;
@@ -61,6 +63,7 @@ textarea {
     padding-left: 0.7rem;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
+
 }
 
 .addons_container label{
@@ -169,6 +172,10 @@ nav h1{
     color: #ffffff;
     font-weight: bold; 
     border: 1px solid rgb(214, 214, 214);
+    padding-top: 0.5rem;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+    text-decoration: none;
 }
 
 .btn1:hover, .btn2:hover, .btn3:hover{
@@ -212,4 +219,89 @@ nav h1{
 
 .delete_form:hover{
     background-color: #706e6e;
+}
+
+.condition-inputs{
+    display: flex;
+    flex-direction: column; 
+   text-align: center;
+   margin: 1rem 2rem 1rem 2rem;
+   border: 1px solid black;
+   border-radius: 0.4rem;
+   
+}
+.condition-inputs p {
+    text-align: left;
+    margin-left:1rem;
+    margin-top: -0.5rem;
+    background-color: #252070;
+    width: 10rem;
+    padding-left: 0.7rem;
+    color:white;
+    font-weight: bold;
+    border-radius: 0.3rem;
+}
+
+.condition-inputs select {
+    display: inline-flex;
+    font-size: 1.2rem;
+    border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+    border: 2px solid rgb(80, 76, 76);
+    margin-top: 1rem;
+    padding-left: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+.logic-input {
+    padding-left: 0.7rem;
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.3rem !important;
+    font-size: 1.1rem !important;
+    border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+    border: 2px solid rgb(80, 76, 76);
+    margin-top: 0.5rem;
+}
+.logic-type-action select {
+
+width: 70%;
+}
+
+.logic-id input {
+    width: 40%;
+    
+}
+.logic-id select{
+    width: 40%;
+    margin-right: 0.3rem;
+}
+
+.add-conditional-logic {
+    margin-top:0.5rem;
+    background-color: #252070;
+    color: white;
+  
+    padding: 0.3rem;
+    border-style: none;
+    border-radius: 0.3rem;
+    font-size: large;
+}
+
+.add-conditional-logic:hover{
+    background-color: #706e6e;
+    cursor: pointer;
+}
+
+.delete-conditional-logic {
+
+        border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: #818164;
+    color: white;
+    font-size: large;
+    border-radius: 0.3rem;
+    margin-bottom: 0.4rem;
+    
 }
