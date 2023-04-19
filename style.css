@@ -75,7 +75,8 @@ textarea {
 
 .input_wrapper{
 padding-top: 3rem;
-
+margin-left: 1rem;
+margin-right: 1rem;
 }
 .remove_addon_button {
     width: 2.5rem;
@@ -304,4 +305,35 @@ width: 70%;
     border-radius: 0.3rem;
     margin-bottom: 0.4rem;
     
+}
+.condition-note{
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    padding:1rem;
+    background: #2f4653;
+    
+    visibility: hidden;
+   margin-left: 25rem;
+   color: white;
+   margin-top: -10rem;
+}
+
+.info-ico {
+    margin-top: 1rem;
+    width: 1.2rem;
+}
+
+
+.info-ico:hover {
+    cursor: pointer;
+}
+
+.info-ico:hover + .condition-note{
+    cursor: pointer;
+    visibility: visible;
+}
+
+.delete-conditional-logic {
+    margin-top:3rem;
 }
